@@ -1,0 +1,6 @@
+mars 22, 2019 11:07:06 AM com.sun.jini.tool.ClassServer run
+INFOS: ClassServer started [[/C:/Users/Quentin/eclipse-workspace/river/river/lib\], port 8065]
+mars 22, 2019 11:07:32 AM com.sun.jini.reggie.RegistrarImpl init
+INFOS: started Reggie: eb4725a3-3641-47f9-a250-a4b4c7745f4e, [river-group], ConstrainableLookupLocator[[jini://PC-Quentin/], [null]]
+mars 22, 2019 11:07:47 AM com.sun.jini.outrigger.OutriggerServerImpl <init>
+INFOS: Outrigger server started: com.sun.jini.outrigger.OutriggerServerImpl@262b2c86
