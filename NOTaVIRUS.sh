@@ -18,11 +18,11 @@ then
   exit $E_BADARGS
 fi
  
-echo -e "Need admin privileges to create a base user for the new database:"
+echo -e "Need admin privileges to create a base user for the new database"
+echo -e "Creating base 'PokeputzDB' with user '$1' and password '$2'"
 
-$MYSQL -uroot -p -e "$SQL"
+$MYSQL -e "$SQL"
 
-echo -e "Database 'PokeputzDB' and user $1 created with a password $2"
+$MYSQL -u $1 -p$2 < Database.sql
 
-$MYSQL -u$1 -p$2 < Database.sql
-
+$MYSQL -e "DELETE FROM mysql.user WHERE User = $1"
