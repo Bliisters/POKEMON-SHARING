@@ -1,0 +1,15 @@
+main WARNING 2019-03-12 10:35:54,876,  -> Could not connect to JMS server org.objectweb.joram.shared.security.SimpleIdentity@66cd51c3(user=root),-1
+javax.jms.IllegalStateException: Could not connect to JMS server with [(hostName=localhost,port=6605)] after 1 attempts during 0 secs.
+Server is not listening or server protocol version is not compatible with client.
+	at org.objectweb.joram.client.jms.tcp.ReliableTcpClient.connect(ReliableTcpClient.java:232)
+	at org.objectweb.joram.client.jms.tcp.ReliableTcpClient.connect(ReliableTcpClient.java:140)
+	at org.objectweb.joram.client.jms.tcp.TcpRequestChannel.connect(TcpRequestChannel.java:116)
+	at org.objectweb.joram.client.jms.connection.RequestMultiplexer.<init>(RequestMultiplexer.java:183)
+	at org.objectweb.joram.client.jms.Connection.open(Connection.java:233)
+	at org.objectweb.joram.client.jms.admin.AbstractConnectionFactory.createConnection(AbstractConnectionFactory.java:308)
+	at org.objectweb.joram.client.jms.admin.AdminModule.doConnect(AdminModule.java:552)
+	at org.objectweb.joram.client.jms.admin.AdminModule.doConnect(AdminModule.java:458)
+	at org.objectweb.joram.client.jms.admin.AdminModule.connect(AdminModule.java:302)
+	at fr.ensibs.joram.JoramAdmin.<init>(JoramAdmin.java:89)
+	at fr.ensibs.joram.JoramAdmin.processCommands(JoramAdmin.java:190)
+	at fr.ensibs.joram.JoramAdmin.main(JoramAdmin.java:71)
