@@ -1,8 +1,14 @@
 # POKEPUTZ-SHARING
 
 *package fr.ensibs.pokeputz.authentification:* Service d'authentification tel que décrit dans le projet initial, essentiellement RMI
+
+
 *package fr.ensibs.pokeputz.publisher:* Service de publication d'annonces par le client sur le serveur, essentiellement JMS et RMI (JMS pour publier, RMI pour inscrire dans la BDD et appeller le JMS)
+
+
 *package fr.ensibs.pokeputz.sharing:* Service d'échange de poképutz tel que décrit dans le projet initial, essentiellement Javaspace
+
+
 *package fr.ensibs.pokeputz.common:* Les interfaces communes a tous les deux projets, genre interface Poképutz, etc...
 
 
