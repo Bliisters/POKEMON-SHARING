@@ -60,6 +60,11 @@
 		    <artifactId>joram-server</artifactId>
 		    <version>1.0</version>
 		</dependency>
+		<dependency>
+    		<groupId>fr.ensibs</groupId>
+    		<artifactId>river</artifactId>
+    		<version>1.0</version>
+		</dependency>
   	</dependencies>
   	
   
