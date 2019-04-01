@@ -1,15 +1,15 @@
 package fr.ensibs.pokeputz.trading;
 
+import fr.ensibs.river.River;
+
 public class Trader {
 	
-	Trader()
-	{
-		
-	}
+	River river;
 	
-	Trader(String host, String port)
+	Trader(String host, int port)
 	{
-		
+		this.river = new River(host, port);
+		river.run();
 	}
 
 }
