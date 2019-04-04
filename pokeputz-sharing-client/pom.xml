@@ -47,6 +47,17 @@
   </build>
 
  	<dependencies>
+ 	    <!-- joram dependencies -->
+    <dependency>
+      <groupId>org.ow2.joram</groupId>
+      <artifactId>joram-client-jms</artifactId>
+      <version>5.16.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.ow2.joram</groupId>
+      <artifactId>jndi-client</artifactId>
+      <version>5.16.0</version>
+    </dependency>
     	<dependency>
     		<groupId>fr.ensibs</groupId>
     		<artifactId>river</artifactId>
