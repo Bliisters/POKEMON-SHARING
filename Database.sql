@@ -9,6 +9,14 @@ CREATE TABLE IF NOT EXISTS Farmers (
 	PRIMARY KEY (FarmerToken)
 );
 
+CREATE TABLE IF NOT EXISTS Salting (
+	FarmerToken VARCHAR(64) NOT NULL,
+	FarmerSalt VARCHAR(256),
+	PRIMARY KEY (FarmerToken),
+	FOREIGN KEY (FarmerToken) REFERENCES Farmers(FarmerToken)
+
+);
+
 CREATE TABLE IF NOT EXISTS Pokeputz (
 	PokeToken VARCHAR(64) NOT NULL,
 	PokeName VARCHAR(256),
