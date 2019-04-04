@@ -25,4 +25,3 @@ $MYSQL -e "$SQL"
 
 $MYSQL -u $1 -p$2 < Database.sql
 
-$MYSQL -e "DELETE FROM mysql.user WHERE User = $1"
