@@ -52,6 +52,26 @@ public class TraderClient {
 	
 	public Pokeput get(String IDAnnonce)
 	{
+		TradeForm template = new TradeForm(IDAnnonce);
+		
+		try {
+			TradeForm form = (TradeForm) space.takeIfExists(template, null, Long.MAX_VALUE);
+			
+			if(form!=null)
+				return form.getPokeput();
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UnusableEntryException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (TransactionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 
