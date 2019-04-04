@@ -13,3 +13,11 @@
 
 
 **UNE REGLE:** On ne créée pas de classe ou interface inutile. Oui yaura sûrement une classe 'Poképutz', mais tant qu'on ne l'utilise pas je ne veux pas la voir dans les packages en mode 'Voilà on en aura besoin je sais pas quoi mettre dedans mlais j'ai fait un truc': On créée les classes dont on aura besoin QUAND ON EN AURA BESOIN
+
+**PORTS UTILISES:**
+
+RMI: 8985
+
+JMS: 8986
+
+Javaspace: 8987

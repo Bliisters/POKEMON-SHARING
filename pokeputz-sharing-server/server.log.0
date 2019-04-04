@@ -1,0 +1,80 @@
+Thread-0 WARNING 2019-04-04 09:55:55,498, AgentServer#0, init()
+Thread-0 WARNING 2019-04-04 09:55:56,015, AgentServer#0, initialized at Thu Apr 04 09:55:56 CEST 2019
+Thread-0 WARNING 2019-04-04 09:55:56,015, AgentServer#0, start()
+Thread-0 WARNING 2019-04-04 09:55:56,031, AgentServer#0, started at Thu Apr 04 09:55:56 CEST 2019
+Thread-0 WARNING 2019-04-04 09:55:58,074,  -> Could not connect to JMS server org.objectweb.joram.shared.security.SimpleIdentity@50e63124(user=root),-1
+javax.jms.IllegalStateException: Could not connect to JMS server with [(hostName=localhost,port=8987)] after 1 attempts during 1 secs.
+Server is not listening or server protocol version is not compatible with client.
+	at org.objectweb.joram.client.jms.tcp.ReliableTcpClient.connect(ReliableTcpClient.java:232)
+	at org.objectweb.joram.client.jms.tcp.ReliableTcpClient.connect(ReliableTcpClient.java:140)
+	at org.objectweb.joram.client.jms.tcp.TcpRequestChannel.connect(TcpRequestChannel.java:116)
+	at org.objectweb.joram.client.jms.connection.RequestMultiplexer.<init>(RequestMultiplexer.java:183)
+	at org.objectweb.joram.client.jms.Connection.open(Connection.java:233)
+	at org.objectweb.joram.client.jms.admin.AbstractConnectionFactory.createConnection(AbstractConnectionFactory.java:308)
+	at org.objectweb.joram.client.jms.admin.AdminModule.doConnect(AdminModule.java:552)
+	at org.objectweb.joram.client.jms.admin.AdminModule.doConnect(AdminModule.java:458)
+	at org.objectweb.joram.client.jms.admin.AdminModule.connect(AdminModule.java:302)
+	at fr.ensibs.joram.Joram.makeConnectionFactory(Joram.java:125)
+	at fr.ensibs.joram.Joram.run(Joram.java:102)
+Thread-0 WARNING 2019-04-04 09:56:10,699, AgentServer#0, init()
+Thread-0 WARNING 2019-04-04 09:56:11,000, AgentServer#0, initialized at Thu Apr 04 09:56:11 CEST 2019
+Thread-0 WARNING 2019-04-04 09:56:11,000, AgentServer#0, start()
+Thread-0 WARNING 2019-04-04 09:56:11,015, AgentServer#0, started at Thu Apr 04 09:56:11 CEST 2019
+Thread-0 WARNING 2019-04-04 09:56:13,053,  -> Could not connect to JMS server org.objectweb.joram.shared.security.SimpleIdentity@79a516d6(user=root),-1
+javax.jms.IllegalStateException: Could not connect to JMS server with [(hostName=localhost,port=8987)] after 1 attempts during 1 secs.
+Server is not listening or server protocol version is not compatible with client.
+	at org.objectweb.joram.client.jms.tcp.ReliableTcpClient.connect(ReliableTcpClient.java:232)
+	at org.objectweb.joram.client.jms.tcp.ReliableTcpClient.connect(ReliableTcpClient.java:140)
+	at org.objectweb.joram.client.jms.tcp.TcpRequestChannel.connect(TcpRequestChannel.java:116)
+	at org.objectweb.joram.client.jms.connection.RequestMultiplexer.<init>(RequestMultiplexer.java:183)
+	at org.objectweb.joram.client.jms.Connection.open(Connection.java:233)
+	at org.objectweb.joram.client.jms.admin.AbstractConnectionFactory.createConnection(AbstractConnectionFactory.java:308)
+	at org.objectweb.joram.client.jms.admin.AdminModule.doConnect(AdminModule.java:552)
+	at org.objectweb.joram.client.jms.admin.AdminModule.doConnect(AdminModule.java:458)
+	at org.objectweb.joram.client.jms.admin.AdminModule.connect(AdminModule.java:302)
+	at fr.ensibs.joram.Joram.makeConnectionFactory(Joram.java:125)
+	at fr.ensibs.joram.Joram.run(Joram.java:102)
+Thread-0 WARNING 2019-04-04 09:57:35,429, AgentServer#0, init()
+Thread-0 WARNING 2019-04-04 09:57:35,730, AgentServer#0, initialized at Thu Apr 04 09:57:35 CEST 2019
+Thread-0 WARNING 2019-04-04 09:57:35,730, AgentServer#0, start()
+Thread-0 WARNING 2019-04-04 09:57:35,745, AgentServer#0, started at Thu Apr 04 09:57:35 CEST 2019
+Thread-0 WARNING 2019-04-04 09:57:37,790,  -> Could not connect to JMS server org.objectweb.joram.shared.security.SimpleIdentity@317f55a5(user=root),-1
+javax.jms.IllegalStateException: Could not connect to JMS server with [(hostName=localhost,port=9001)] after 1 attempts during 1 secs.
+Server is not listening or server protocol version is not compatible with client.
+	at org.objectweb.joram.client.jms.tcp.ReliableTcpClient.connect(ReliableTcpClient.java:232)
+	at org.objectweb.joram.client.jms.tcp.ReliableTcpClient.connect(ReliableTcpClient.java:140)
+	at org.objectweb.joram.client.jms.tcp.TcpRequestChannel.connect(TcpRequestChannel.java:116)
+	at org.objectweb.joram.client.jms.connection.RequestMultiplexer.<init>(RequestMultiplexer.java:183)
+	at org.objectweb.joram.client.jms.Connection.open(Connection.java:233)
+	at org.objectweb.joram.client.jms.admin.AbstractConnectionFactory.createConnection(AbstractConnectionFactory.java:308)
+	at org.objectweb.joram.client.jms.admin.AdminModule.doConnect(AdminModule.java:552)
+	at org.objectweb.joram.client.jms.admin.AdminModule.doConnect(AdminModule.java:458)
+	at org.objectweb.joram.client.jms.admin.AdminModule.connect(AdminModule.java:302)
+	at fr.ensibs.joram.Joram.makeConnectionFactory(Joram.java:125)
+	at fr.ensibs.joram.Joram.run(Joram.java:102)
+Thread-0 WARNING 2019-04-04 10:02:39,581, AgentServer#0, init()
+Thread-0 WARNING 2019-04-04 10:02:39,920, AgentServer#0, initialized at Thu Apr 04 10:02:39 CEST 2019
+Thread-0 WARNING 2019-04-04 10:02:39,920, AgentServer#0, start()
+Thread-0 WARNING 2019-04-04 10:02:39,936, AgentServer#0, started at Thu Apr 04 10:02:39 CEST 2019
+Thread-0 WARNING 2019-04-04 10:02:41,973,  -> Could not connect to JMS server org.objectweb.joram.shared.security.SimpleIdentity@313213bf(user=root),-1
+javax.jms.IllegalStateException: Could not connect to JMS server with [(hostName=localhost,port=9001)] after 1 attempts during 1 secs.
+Server is not listening or server protocol version is not compatible with client.
+	at org.objectweb.joram.client.jms.tcp.ReliableTcpClient.connect(ReliableTcpClient.java:232)
+	at org.objectweb.joram.client.jms.tcp.ReliableTcpClient.connect(ReliableTcpClient.java:140)
+	at org.objectweb.joram.client.jms.tcp.TcpRequestChannel.connect(TcpRequestChannel.java:116)
+	at org.objectweb.joram.client.jms.connection.RequestMultiplexer.<init>(RequestMultiplexer.java:183)
+	at org.objectweb.joram.client.jms.Connection.open(Connection.java:233)
+	at org.objectweb.joram.client.jms.admin.AbstractConnectionFactory.createConnection(AbstractConnectionFactory.java:308)
+	at org.objectweb.joram.client.jms.admin.AdminModule.doConnect(AdminModule.java:552)
+	at org.objectweb.joram.client.jms.admin.AdminModule.doConnect(AdminModule.java:458)
+	at org.objectweb.joram.client.jms.admin.AdminModule.connect(AdminModule.java:302)
+	at fr.ensibs.joram.Joram.makeConnectionFactory(Joram.java:125)
+	at fr.ensibs.joram.Joram.run(Joram.java:102)
+Thread-0 WARNING 2019-04-04 10:03:19,466, AgentServer#0, init()
+Thread-0 WARNING 2019-04-04 10:03:19,734, AgentServer#0, initialized at Thu Apr 04 10:03:19 CEST 2019
+Thread-0 WARNING 2019-04-04 10:03:19,734, AgentServer#0, start()
+Thread-0 WARNING 2019-04-04 10:03:19,834, AgentServer#0, started at Thu Apr 04 10:03:19 CEST 2019
+Thread-0 WARNING 2019-04-04 10:11:06,386, AgentServer#0, init()
+Thread-0 WARNING 2019-04-04 10:11:06,618, AgentServer#0, initialized at Thu Apr 04 10:11:06 CEST 2019
+Thread-0 WARNING 2019-04-04 10:11:06,618, AgentServer#0, start()
+Thread-0 WARNING 2019-04-04 10:11:06,718, AgentServer#0, started at Thu Apr 04 10:11:06 CEST 2019
