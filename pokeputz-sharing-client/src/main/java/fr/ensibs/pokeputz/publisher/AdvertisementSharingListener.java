@@ -7,7 +7,6 @@ import javax.jms.MessageListener;
 
 public class AdvertisementSharingListener implements MessageListener
 {
-
 	  /**
 	  * the instance that processes BytesMessage messages
 	  */
