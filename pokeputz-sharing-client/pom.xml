@@ -57,5 +57,10 @@
     		<artifactId>river-lookup</artifactId>
     		<version>1.0</version>
 		</dependency>
+		<dependency>
+			<groupId>fr.ensibs</groupId>
+  			<artifactId>pokeputz-common</artifactId>
+  			<version>1.0</version>
+		</dependency>
 	</dependencies>
 </project>
