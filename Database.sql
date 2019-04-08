@@ -21,7 +21,8 @@ CREATE TABLE IF NOT EXISTS Pokeputz (
 	PokeToken VARCHAR(64) NOT NULL,
 	PokeName VARCHAR(256),
 	PokeEvol VARCHAR(64),
-	PokeType VARCHAR(64),
+	PokeType1 VARCHAR(64),
+	PokeType2 VARCHAR(64),
 	PRIMARY KEY (PokeToken),
 	FOREIGN KEY (PokeEvol) REFERENCES Pokeputz(PokeToken)
 );
