@@ -25,6 +25,8 @@ public class DatabaseCRUD {
 
             Class.forName("com.mysql.jdbc.Driver").newInstance();
         } catch (Exception ex) {
+        	
+        	System.err.println("Driver class not found");
             // handle the error
         }
         

@@ -30,7 +30,7 @@ public class Authentifier extends RemoteObject implements IAuthentifier {
             // The newInstance() call is a work around for some
             // broken Java implementations
 
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
         } catch (Exception ex) {
             // handle the error
         }
@@ -58,7 +58,7 @@ public class Authentifier extends RemoteObject implements IAuthentifier {
 		
 		Registry registry = LocateRegistry.createRegistry(8985);
 		
-		Authentifier A = new Authentifier(new DatabaseCRUD("localhost", "3039"));
+		Authentifier A = new Authentifier(new DatabaseCRUD("test", "test"));
 		registry.bind("Authentifier", A );
         
 	}
