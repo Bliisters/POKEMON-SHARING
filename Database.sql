@@ -5,7 +5,7 @@ USE PokeputzDB;
 CREATE TABLE IF NOT EXISTS Farmers (
 	FarmerToken VARCHAR(64) NOT NULL,
 	FarmerName VARCHAR(256),
-	FarmerPass VARCHAR(64),
+	FarmerPass VARCHAR(70),
 	PRIMARY KEY (FarmerToken)
 );
 

@@ -48,18 +48,20 @@ public class DatabaseCRUD {
 		Farmer result = new Farmer();
 		
 		PreparedStatement statement = conn.prepareStatement("SELECT FarmerToken, FarmerName FROM Farmers WHERE FarmerToken = ? ");
-		statement.setString(0, Token);
+		statement.setString(1, Token);
 		ResultSet resultset = statement.executeQuery();
-		result.setToken(resultset.getString(0));
-		result.setName(resultset.getString(1));
+		resultset.first();
+		result.setToken(resultset.getString(1));
+		result.setName(resultset.getString(2));
 		
 		statement = conn.prepareStatement("SELECT PokeToken FROM PossessTable WHERE FarmerToken = ? ");
-		statement.setString(0, Token);
+		statement.setString(1, Token);
 		resultset = statement.executeQuery();
-		
-		String Poketoken = resultset.getString(0);
-		while (Poketoken != null)
+		resultset.beforeFirst();
+		String Poketoken = "";
+		while (resultset.next())
 		{
+			Poketoken = resultset.getString(1);
 			result.addPokeput(this.getPokeput(Poketoken));
 		}
 		
@@ -71,11 +73,12 @@ public class DatabaseCRUD {
 		Pokeput result = new Pokeput();
 		
 		PreparedStatement statement = conn.prepareStatement("SELECT PokeToken, PokeName, PokeType1, PokeType2 FROM Pokeputz WHERE PokeToken = ? ");
-		statement.setString(0, Token);
+		statement.setString(1, Token);
 		ResultSet resultSet = statement.executeQuery();
-		result.setToken(resultSet.getString(0));
-		result.setName(resultSet.getString(1));
-		result.setTypes( Enum.valueOf(Pokeput.TYPE.class, resultSet.getString(2)) , Enum.valueOf(Pokeput.TYPE.class, resultSet.getString(3)) );
+		resultSet.first();
+		result.setToken(resultSet.getString(1));
+		result.setName(resultSet.getString(2));
+		result.setTypes( Enum.valueOf(Pokeput.TYPE.class, resultSet.getString(3)) , Enum.valueOf(Pokeput.TYPE.class, resultSet.getString(4)) );
 		
 		return result;
 	}

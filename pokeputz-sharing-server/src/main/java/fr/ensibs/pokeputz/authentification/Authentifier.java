@@ -8,6 +8,7 @@ import java.rmi.server.RemoteObject;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Random;
 
@@ -69,10 +70,14 @@ public class Authentifier extends RemoteObject implements IAuthentifier {
 		A.LoadDriver("test", "test");
 		
 		try {
-			A.login("toto","psswd");
+			A.signIn("toto", "psswd");
+			String resname = A.login("toto",DigestUtils.sha256Hex("psswd")).getName();
+			System.out.println(resname);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+		
 		
 	}
 
@@ -82,46 +87,59 @@ public class Authentifier extends RemoteObject implements IAuthentifier {
 		String SQLSentence = "SELECT FarmerSalt FROM Salting WHERE FarmerToken = ?";
 		
 		PreparedStatement statement = conn.prepareStatement("SELECT FarmerToken FROM Farmers WHERE FarmerName = ? ");
-		statement.setString(0, username);
-		String Token = statement.executeQuery().getString(0);
+		statement.setString(1, username);
+		ResultSet resultset = statement.executeQuery();
+		resultset.first();
+		String Token = resultset.getString(1);
 		
 		statement = conn.prepareStatement("SELECT FarmerSalt FROM Salting WHERE FarmerToken = ? ");
-		statement.setString(0, Token);
-		String salt = statement.executeQuery().getString(0);
+		statement.setString(1, Token);
+		resultset = statement.executeQuery();
+		resultset.first();
+		String salt = resultset.getString(1);
 		String pass = hashedPass + salt;
 		
 		statement = conn.prepareStatement("SELECT FarmerToken FROM Farmers WHERE FarmerName = ? AND FarmerPass = ?");
-		statement.setString(0, username);
-		statement.setString(1, pass);
-		String DefinitiveToken = statement.executeQuery().getString(0);
+		statement.setString(1, username);
+		statement.setString(2, pass);
+		resultset = statement.executeQuery();
+		resultset.first();
+		String DefinitiveToken = resultset.getString(1);
 		
 		Farmer result = CRUD.getFarmer(DefinitiveToken);
-				
+		
 		return result;
 	}
 	
-	public void signIn(String username, String pass) throws SQLException {
+	public void signIn(String username, String clearpass) throws SQLException {
 				
 		PreparedStatement statement = conn.prepareStatement("SELECT FarmerToken FROM Farmers WHERE FarmerName = ? ");
-		statement.setString(0, username);
-		String Token = statement.executeQuery().getString(0);
-		if (Token != null)
+		statement.setString(1, username);
+		ResultSet resultset = statement.executeQuery();
+		resultset.first();
+		try
 		{
+			resultset.getString(1);
 			System.out.println("User '"+username+"' already exists.");
+			return;
+		} catch (Exception E) {
+			
 		}
 		
 		statement = conn.prepareStatement("INSERT INTO Farmers VALUES ( ? , ? , ? )");
-		Token = nextToken(10);
-		statement.setString(0, Token);
-		statement.setString(1, username);
-		String hashedpass = DigestUtils.sha256Hex(pass);
-		statement.setString(2, hashedpass);
-		statement.executeQuery();
+		String Token = nextToken(10);
+		statement.setString(1, Token);
+		statement.setString(2, username);
+		String hashedpass = DigestUtils.sha256Hex(clearpass);
+		String salt = nextToken(5);
+		hashedpass = hashedpass + salt;
+		statement.setString(3, hashedpass);
+		statement.executeUpdate();
 		
 		statement = conn.prepareStatement("INSERT INTO Salting VALUES ( ? , ? )");
-		statement.setString(0, Token);
-		statement.setString(1, nextToken(5));
-		statement.executeQuery();
+		statement.setString(1, Token);
+		statement.setString(2, salt);
+		statement.executeUpdate();
 		
 	}
 
