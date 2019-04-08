@@ -9,6 +9,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Random;
+
+import org.apache.commons.codec.digest.DigestUtils;
 
 import fr.ensibs.pokeputz.common.Farmer;
 import fr.ensibs.pokeputz.util.DatabaseCRUD;
@@ -20,6 +23,9 @@ public class Authentifier extends RemoteObject implements IAuthentifier {
 	private Connection conn;
 	
 	private DatabaseCRUD CRUD;
+	
+	private static final Random random = new Random();
+	private static final String CHARS = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890!@#$";
 	
 	public Authentifier (DatabaseCRUD CRUD) {
 		this.CRUD = CRUD;
@@ -60,7 +66,14 @@ public class Authentifier extends RemoteObject implements IAuthentifier {
 		
 		Authentifier A = new Authentifier(new DatabaseCRUD("test", "test"));
 		registry.bind("Authentifier", A );
-        
+		A.LoadDriver("test", "test");
+		
+		try {
+			A.login("toto","psswd");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	@Override
@@ -87,4 +100,36 @@ public class Authentifier extends RemoteObject implements IAuthentifier {
 		return result;
 	}
 	
+	public void signIn(String username, String pass) throws SQLException {
+				
+		PreparedStatement statement = conn.prepareStatement("SELECT FarmerToken FROM Farmers WHERE FarmerName = ? ");
+		statement.setString(0, username);
+		String Token = statement.executeQuery().getString(0);
+		if (Token != null)
+		{
+			System.out.println("User '"+username+"' already exists.");
+		}
+		
+		statement = conn.prepareStatement("INSERT INTO Farmers VALUES ( ? , ? , ? )");
+		Token = nextToken(10);
+		statement.setString(0, Token);
+		statement.setString(1, username);
+		String hashedpass = DigestUtils.sha256Hex(pass);
+		statement.setString(2, hashedpass);
+		statement.executeQuery();
+		
+		statement = conn.prepareStatement("INSERT INTO Salting VALUES ( ? , ? )");
+		statement.setString(0, Token);
+		statement.setString(1, nextToken(5));
+		statement.executeQuery();
+		
+	}
+
+	private static String nextToken(int length) {
+	    StringBuilder token = new StringBuilder(length);
+	    for (int i = 0; i < length; i++) {
+	        token.append(CHARS.charAt(random.nextInt(CHARS.length())));
+	    }
+	    return token.toString();
+	}
 }
