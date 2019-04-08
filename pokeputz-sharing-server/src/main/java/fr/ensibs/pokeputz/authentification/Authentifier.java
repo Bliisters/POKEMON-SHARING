@@ -38,7 +38,7 @@ public class Authentifier extends RemoteObject implements IAuthentifier {
         try {
             conn =
                DriverManager.getConnection("jdbc:mysql://localhost/PokeputzDB?" +
-                                           "user="+user+"&password="+pass);
+                                           "user="+user+"&password="+pass+"&serverTimezone=UTC");
         } catch (SQLException ex) {
             // handle any errors
             System.out.println("SQLException: " + ex.getMessage());

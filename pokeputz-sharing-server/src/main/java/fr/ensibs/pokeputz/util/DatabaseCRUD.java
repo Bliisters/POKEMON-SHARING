@@ -23,7 +23,7 @@ public class DatabaseCRUD {
             // The newInstance() call is a work around for some
             // broken Java implementations
 
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
         } catch (Exception ex) {
         	
         	System.err.println("Driver class not found");
@@ -33,7 +33,7 @@ public class DatabaseCRUD {
         try {
             conn =
                DriverManager.getConnection("jdbc:mysql://localhost/PokeputzDB?" +
-                                           "user="+user+"&password="+pass);
+                                           "user="+user+"&password="+pass+"&serverTimezone=UTC");
         } catch (SQLException ex) {
             // handle any errors
             System.out.println("SQLException: " + ex.getMessage());
