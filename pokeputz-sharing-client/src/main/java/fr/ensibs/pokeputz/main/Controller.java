@@ -6,7 +6,7 @@ public class Controller {
 	
 	TraderClient trader;
 	
-	Controller(String host, int port)
+	public Controller(String host, int port)
 	{
 		this.trader = new TraderClient(host, port);
 		
