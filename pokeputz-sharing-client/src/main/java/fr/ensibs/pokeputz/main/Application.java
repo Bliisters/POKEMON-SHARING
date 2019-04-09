@@ -1,8 +1,11 @@
 package fr.ensibs.pokeputz.main;
 
+import java.util.Scanner;
+
 import fr.ensibs.pokeputz.common.Farmer;
 
 public class Application {
+	
 	
 	public static void main(String[] args) {
 		
@@ -12,7 +15,21 @@ public class Application {
 		if (args[0]=="-h" || args.length<2)
 			help();
 		
-		controller = new Controller(args[0], Integer.parseInt(args[1]));
+		else {
+			controller = new Controller(args[0], Integer.parseInt(args[1]));
+			usage();
+			do {
+				Scanner scanner = new Scanner(System.in);
+			    String line = scanner.nextLine();
+			    String[] command = line.split(" +");
+			    
+			    switch (command[0].toUpperCase()) { 
+			      
+				
+			}while(!(line.toUpperCase()).equals("QUIT"));
+			
+		}
+		
 		
 		
 
@@ -29,6 +46,11 @@ public class Application {
 		System.out.println("Merci d'avoir choisi notre système d'échange de Pokeputz !");
 		System.out.println("Avant de commencer, connectez-vous grâce à la commande : ");
 		System.out.println("CONNECT [username] [password]");
+		
+	}
+	
+	private static run()
+	{
 		
 	}
 

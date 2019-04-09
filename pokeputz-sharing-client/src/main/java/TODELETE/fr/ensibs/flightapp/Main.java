@@ -165,6 +165,7 @@ public class Main {
 	        	this.checkInstructions(command);
 	        break;
 	        
+	        
 	        case "LOOKFOR":
 	        	this.lookforInstruction(command);
 	        break;
