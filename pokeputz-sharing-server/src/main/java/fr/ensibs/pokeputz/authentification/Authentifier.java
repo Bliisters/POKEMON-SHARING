@@ -15,6 +15,7 @@ import java.util.Random;
 import org.apache.commons.codec.digest.DigestUtils;
 
 import fr.ensibs.pokeputz.common.Farmer;
+import fr.ensibs.pokeputz.common.IAuthentifier;
 import fr.ensibs.pokeputz.util.DatabaseCRUD;
 
 public class Authentifier extends RemoteObject implements IAuthentifier {
