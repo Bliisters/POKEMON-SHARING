@@ -17,9 +17,9 @@ public class TraderClient {
 	TransactionManager transactionManager;
 	ServerTransaction transaction;
 	
-	TraderClient(String host, int port)
+	public TraderClient(String host, int port)
 	{
-		System.out.println("Searching for a JavaSpace...");
+		System.out.println("Recherche d'un JavaSpace...");
         RiverLookup finder;
 		try {
 			finder = new RiverLookup();
