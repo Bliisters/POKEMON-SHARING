@@ -8,7 +8,7 @@ import fr.ensibs.joram.JoramAdmin;
  * application
  */
 
-public class AdvertisementSharingServer {
+public class AdvertisementSharingServerApp {
 
 	/**
 	 * the topic name
@@ -21,17 +21,46 @@ public class AdvertisementSharingServer {
 	private JoramAdmin admin;
 
 	/**
+	 * Print a usage message and exits
+	 */
+	private static void usage()
+	{
+		System.out.println("java PhotoSharingServer <port>");
+		System.out.println("Launch a JMS server and creates the " + TOPIC_NAME + " topic if needed");
+		System.exit(0);
+	}
+
+	/**
+	 * Program entry point
+	 *
+	 * @param args see {@link usage()}
+	 */
+	public static void main(String[] args) throws Exception
+	{
+		if (args.length != 1 || args[0].equals("-h")) {
+			usage();
+		}
+
+		try {
+			int port = Integer.parseInt(args[0]);
+			AdvertisementSharingServerApp server = new AdvertisementSharingServerApp(port);
+			server.makeTopic(TOPIC_NAME);
+		} catch (NumberFormatException e) {
+			usage();
+		}
+	}
+
+	/**
 	 * Constructor. Launch the JMS server and create the admin instance
 	 *
 	 * @param port the openjms port number
 	 */
-	public AdvertisementSharingServer(String host, int port) throws Exception
+	public AdvertisementSharingServerApp(int port) throws Exception
 	{
 		Joram joram = new Joram(port);
 		joram.start();
 		Thread.sleep(3000);
-		this.admin = new JoramAdmin(host, port);
-		this.makeTopic(TOPIC_NAME);
+		this.admin = new JoramAdmin("localhost", port);
 	}
 
 	/**
