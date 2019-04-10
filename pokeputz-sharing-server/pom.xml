@@ -30,7 +30,7 @@
 	<configuration>
           <archive>
             <manifest>
-              <mainClass>fr.ensibs.photosharing.PhotoSharingApp</mainClass>
+              <mainClass>fr.ensibs.pokeputz.Server.PokeputSharingServerApp</mainClass>
             </manifest>
           </archive>
 	</configuration>
