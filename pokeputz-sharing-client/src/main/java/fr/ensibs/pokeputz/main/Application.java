@@ -18,21 +18,18 @@ public class Application {
 		else {
 			controller = new Controller(args[0], Integer.parseInt(args[1]));
 			usage();
+			String line = null;
 			do {
 				Scanner scanner = new Scanner(System.in);
-			    String line = scanner.nextLine();
+			    line = scanner.nextLine();
 			    String[] command = line.split(" +");
 			    
-			    switch (command[0].toUpperCase()) { 
+			    switch (command[0].toUpperCase()) { }
 			      
 				
-			} while(!(line.toUpperCase()).equals("QUIT"));
+			} while(!(line.toUpperCase().equals("QUIT")));
 			
 		}
-		
-		
-		
-
 
 	}
 	
