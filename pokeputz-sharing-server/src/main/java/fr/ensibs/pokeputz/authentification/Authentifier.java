@@ -29,8 +29,9 @@ public class Authentifier extends RemoteObject implements IAuthentifier {
 	private static final Random random = new Random();
 	private static final String CHARS = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890!@#$";
 	
-	public Authentifier (DatabaseCRUD CRUD) {
+	public Authentifier (String user, String pass, DatabaseCRUD CRUD) {
 		this.CRUD = CRUD;
+		this.LoadDriver(user, pass);
 	}
 	
 	public void LoadDriver(String user, String pass) {
@@ -40,6 +41,7 @@ public class Authentifier extends RemoteObject implements IAuthentifier {
 
             Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
         } catch (Exception ex) {
+        	ex.printStackTrace();
             // handle the error
         }
         
@@ -56,7 +58,7 @@ public class Authentifier extends RemoteObject implements IAuthentifier {
         
 	}
 	
-	
+	/*
 	public static void main(String[] args) throws NumberFormatException, RemoteException, AlreadyBoundException {
 
 		String user = (args.length < 1) ? null : args[0];
@@ -80,7 +82,7 @@ public class Authentifier extends RemoteObject implements IAuthentifier {
 		
 		
 		
-	}
+	}*/
 
 	@Override
 	public Farmer login(String username, String hashedPass) throws SQLException {
