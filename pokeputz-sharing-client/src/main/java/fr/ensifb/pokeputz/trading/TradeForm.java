@@ -3,6 +3,9 @@ package fr.ensifb.pokeputz.trading;
 import fr.ensibs.pokeputz.common.Pokeput;
 import net.jini.core.entry.Entry;
 
+/*
+ *  Form that contains all the informations required for the trade
+ */
 public class TradeForm implements Entry{
 	
 	public String IDAnnonce; 

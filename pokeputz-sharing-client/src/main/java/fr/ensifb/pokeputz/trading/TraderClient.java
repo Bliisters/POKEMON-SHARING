@@ -17,6 +17,9 @@ public class TraderClient {
 	TransactionManager transactionManager;
 	ServerTransaction transaction;
 	
+	/*
+	 * Constructor (connection to the server's TupleSpace
+	 */
 	public TraderClient(String host, int port)
 	{
 		System.out.println("Recherche d'un JavaSpace...");
@@ -35,7 +38,7 @@ public class TraderClient {
 		}
 	}
 	
-	
+	// Put a new form into the TupleSpace
 	public void put(String IDAnnonce, Pokeput pokeput)
 	{
 		TradeForm form = new TradeForm(IDAnnonce, pokeput);
@@ -50,6 +53,7 @@ public class TraderClient {
 		}
 	}
 	
+	// Get a form from the TupleSpace
 	public Pokeput get(String IDAnnonce)
 	{
 		TradeForm template = new TradeForm(IDAnnonce);
