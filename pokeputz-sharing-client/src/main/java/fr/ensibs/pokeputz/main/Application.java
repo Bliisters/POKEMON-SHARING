@@ -26,7 +26,7 @@ public class Application {
 			    switch (command[0].toUpperCase()) { 
 			      
 				
-			}while(!(line.toUpperCase()).equals("QUIT"));
+			} while(!(line.toUpperCase()).equals("QUIT"));
 			
 		}
 		

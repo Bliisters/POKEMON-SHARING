@@ -7,7 +7,7 @@ import java.rmi.registry.Registry;
 import java.sql.SQLException;
 
 import fr.ensibs.pokeputz.common.Farmer;
-import fr.ensibs.pokeputz.common.IAuthentifier;
+import fr.ensibs.pokeputz.interfaces.IAuthentifier;
 
 public class AuthentifierClient {
 	

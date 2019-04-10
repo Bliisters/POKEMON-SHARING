@@ -1,4 +1,4 @@
-package fr.ensibs.pokeputz.common;
+package fr.ensibs.pokeputz.interfaces;
 
 import java.rmi.Remote;
 import java.util.Properties;

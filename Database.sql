@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS PokePosts (
 	PostAuthor VARCHAR(64),
 	PostPokeGiven VARCHAR(64),
 	PostPokeLookedFor VARCHAR(64),
+	Answered BOOLEAN,
 	PRIMARY KEY (PostToken),
 	FOREIGN KEY (PostPokeGiven) REFERENCES Pokeputz(PokeToken),
 	FOREIGN KEY (PostPokeLookedFor) REFERENCES Pokeputz(PokeToken)

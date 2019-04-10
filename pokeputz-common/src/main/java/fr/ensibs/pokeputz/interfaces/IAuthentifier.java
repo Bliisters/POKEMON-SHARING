@@ -1,6 +1,8 @@
-package fr.ensibs.pokeputz.common;
+package fr.ensibs.pokeputz.interfaces;
 
 import java.sql.SQLException;
+
+import fr.ensibs.pokeputz.common.Farmer;
 
 public interface IAuthentifier {
 
