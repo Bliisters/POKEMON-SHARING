@@ -1,9 +1,5 @@
 package fr.ensibs.pokeputz.authentification;
 
-import java.rmi.AlreadyBoundException;
-import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 import java.rmi.server.RemoteObject;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -57,32 +53,7 @@ public class Authentifier extends RemoteObject implements IAuthentifier {
         }
         
 	}
-	
-	/*
-	public static void main(String[] args) throws NumberFormatException, RemoteException, AlreadyBoundException {
-
-		String user = (args.length < 1) ? null : args[0];
-		String pass = (args.length < 2) ? null : args[1];
-		
-		//Server MailBox = new Server();
-		
-		Registry registry = LocateRegistry.createRegistry(8985);
-		
-		Authentifier A = new Authentifier(new DatabaseCRUD("test", "test"));
-		registry.bind("Authentifier", A );
-		A.LoadDriver("test", "test");
-		
-		try {
-			A.signIn("toto", "psswd");
-			String resname = A.login("toto",DigestUtils.sha256Hex("psswd")).getName();
-			System.out.println(resname);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		
-		
-		
-	}*/
+			
 
 	@Override
 	public Farmer login(String username, String hashedPass) throws SQLException {

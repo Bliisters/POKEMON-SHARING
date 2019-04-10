@@ -7,6 +7,9 @@ import java.util.Properties;
 
 import javax.jms.BytesMessage;
 
+import fr.ensibs.pokeputz.common.DefaultAdvertisement;
+import fr.ensibs.pokeputz.interfaces.Advertisement;
+
 public class MessengingUser implements User {
 	/**
 	  * object used to communicate through openJSM

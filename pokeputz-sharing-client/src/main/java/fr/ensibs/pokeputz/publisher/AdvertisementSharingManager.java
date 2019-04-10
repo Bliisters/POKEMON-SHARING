@@ -4,6 +4,9 @@ import java.io.File;
 import java.util.Properties;
 import java.util.Scanner;
 
+import fr.ensibs.pokeputz.common.DefaultAdvertisement;
+import fr.ensibs.pokeputz.interfaces.Advertisement;
+
 public class AdvertisementSharingManager {
 	
 	/**

@@ -5,7 +5,7 @@ import java.util.Vector;
 
 import fr.ensibs.pokeputz.common.PokePost;
 
-public interface IDatabasePublisher {
+public interface IPublisher {
 
 	void publish(PokePost post) throws SQLException;
 

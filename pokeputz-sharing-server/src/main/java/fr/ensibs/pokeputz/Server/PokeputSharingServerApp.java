@@ -1,17 +1,24 @@
 package fr.ensibs.pokeputz.Server;
 
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.util.Scanner;
 
 import fr.ensibs.pokeputz.authentification.Authentifier;
+import fr.ensibs.pokeputz.publisher.AdvertisementSharingServer;
+import fr.ensibs.pokeputz.publisher.Publisher;
 import fr.ensibs.pokeputz.util.DatabaseCRUD;
 
 public class PokeputSharingServerApp {
+
+	private static final String REMOTE_AUTHENTIFIER = "AUTHENTIFIER";
+	private static final String REMOTE_PUBLISHER = "PUBLISHER";
 	
 	String host;
 	int port;
 
 	Authentifier auth;
-	//PublisherController publish;
+	Publisher publish;
 	//TradingController trade;
 	DatabaseCRUD CRUD;
 	
@@ -50,8 +57,27 @@ public class PokeputSharingServerApp {
 
 		this.CRUD = new DatabaseCRUD(dbuser, dbpass);
 		
-		this.auth = new Authentifier(host, ""+port, this.CRUD);
-		//this.publish = new PublisherController(host, port+1, this.CRUD);
+		try {
+			this.publish = new Publisher(this.CRUD, new AdvertisementSharingServer(host, port));
+		} catch (Exception e) {
+			System.err.println("Unable to start JMS service. Out.");
+			e.printStackTrace();
+			System.exit(1);
+		}
+		
+		this.auth = new Authentifier(dbuser, dbpass, this.CRUD);
+		try {
+			Registry registry = LocateRegistry.createRegistry(port);
+			registry.bind( REMOTE_AUTHENTIFIER , this.auth);
+			registry.bind( REMOTE_PUBLISHER , this.publish);
+		} catch (Exception e) {
+			System.err.println("Unable to start RMI service. Out.");
+			e.printStackTrace();
+			System.exit(1);
+		}
+		
+
+		
 		//this.trade = new TradingController(host, port+2);
 		
 	}

@@ -17,6 +17,8 @@ import javax.jms.Session;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 
+import fr.ensibs.pokeputz.interfaces.Advertisement;
+
 public class AdvertisementSharingMessenger {
 	/**
 	  * the name of the topic used to exchange photos

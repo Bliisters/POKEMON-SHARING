@@ -1,4 +1,4 @@
-package fr.ensibs.pokeputz.publisher;
+package fr.ensibs.pokeputz.interfaces;
 
 import java.util.Properties;
 import java.io.Serializable;
@@ -14,19 +14,22 @@ public interface Advertisement extends Serializable
   *
   * @return the advertisement tags
   */
-  Properties getTags();
+  public Properties getTags();
 
   /**
   * Give the string that contains the message
   *
   * @return the photo file
   */
-  String getMessage();
+  public String getMessage();
 
   /**
   * Give the user that shared the advertisement, considered as the advertisement owner
   *
   * @return the advertisement owner
   */
-  String getOwner();
+  public String getOwner();
+  
+
+
 }

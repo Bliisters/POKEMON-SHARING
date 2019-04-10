@@ -2,6 +2,8 @@ package fr.ensibs.pokeputz.publisher;
 
 import java.util.Properties;
 
+import fr.ensibs.pokeputz.interfaces.Advertisement;
+
 public interface User {
 	
 	  /**

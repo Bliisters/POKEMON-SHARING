@@ -1,7 +1,12 @@
 package fr.ensibs.pokeputz.publisher;
 
+import java.util.Properties;
+
 import fr.ensibs.joram.Joram;
 import fr.ensibs.joram.JoramAdmin;
+import fr.ensibs.pokeputz.common.DefaultAdvertisement;
+import fr.ensibs.pokeputz.common.PokePost;
+import fr.ensibs.pokeputz.interfaces.Advertisement;
 
 /**
  * Program that launches a JMS server and creates a topic for the advertisement sharing
@@ -10,15 +15,14 @@ import fr.ensibs.joram.JoramAdmin;
 
 public class AdvertisementSharingServer {
 
-	/**
-	 * the topic name
-	 */
 	private static final String TOPIC_NAME = "TRADES";
 
 	/**
 	 * the JMS administration instance
 	 */
 	private JoramAdmin admin;
+	
+	
 
 	/**
 	 * Constructor. Launch the JMS server and create the admin instance
@@ -62,6 +66,16 @@ public class AdvertisementSharingServer {
 		}
 		return false;
 	}
+	
+	/*
+	public void share(String message, Properties tags)
+	{
+	    Advertisement advertisement = new DefaultAdvertisement(message, tags, this.user.getName());
+	    boolean success = this.user.share(advertisement);
+	    if (success) {
+	      System.out.println(advertisement + " has been shared");
+	    }
+	}*/
 
 
 }

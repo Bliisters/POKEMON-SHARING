@@ -1,6 +1,8 @@
-package fr.ensibs.pokeputz.publisher;
+package fr.ensibs.pokeputz.common;
 
 import java.util.Properties;
+
+import fr.ensibs.pokeputz.interfaces.Advertisement;
 
 /**
  * An advertisement shared by a user composed of a message and tags that describe the advertisement
@@ -41,25 +43,25 @@ public class DefaultAdvertisement implements Advertisement {
 		this.owner = owner;
 	}
 
-	@Override
+	
 	public Properties getTags()
 	{
 		return this.tags;
 	}
 
-	@Override
+	
 	public String getMessage()
 	{
 		return this.message;
 	}
 
-	@Override
+	
 	public String getOwner()
 	{
 		return this.owner;
 	}
 
-	@Override
+	
 	public String toString()
 	{
 		return "{ Advertissement: message=" + message + ",owner=" + owner + ",tags=" + tags + " }";
